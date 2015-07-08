@@ -1,13 +1,12 @@
 """This file should have our melon-type classes in it."""
 
 
-class WatermelonOrder(object):
-    species = "Watermelon"
-    color = "green"
-    imported = False
-    shape = 'natural'
-    seasons = ['Fall', 'Summer']
-    price = 5.0
+class Melon(object):
+    species = None
+    color = None
+    imported = None
+    shape = None
+    seasons = []
 
     def get_price(self, qty):
         """Calculate price, given a number of melons ordered."""
@@ -21,7 +20,7 @@ class WatermelonOrder(object):
             self.price = self.price * 2.0
 
         total = self.price * qty
-        
+
         if self.species == "Watermelon" and qty >= 3:
             total = total * 0.75
         elif self.species == "Cantaloupe" and qty >= 5:
@@ -30,3 +29,12 @@ class WatermelonOrder(object):
 
 
         return total
+
+class WatermelonOrder(object):
+    species = 'Watermelon'
+    color = 'green'
+    imported = False
+    shape = 'natural'
+    seasons = ['Fall', 'Summer']
+
+    
