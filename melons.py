@@ -8,33 +8,89 @@ class Melon(object):
     shape = None
     seasons = []
 
+    def get_base_price(self):
+        return 5
+
     def get_price(self, qty):
         """Calculate price, given a number of melons ordered."""
-        if self.species == "Casabas" or self.species == "Ogens":
-            self.price = self.price + 1.0
+        price = self.get_base_price()
+        if self.species == "Casaba" or self.species == "Ogen":
+            price += 1.0
 
         if self.imported: 
-            self.price = self.price * 1.5
+            price *= 1.5
 
         if self.shape == "square":
-            self.price = self.price * 2.0
+            price *= 2.0
 
-        total = self.price * qty
+        total = price * qty
 
         if self.species == "Watermelon" and qty >= 3:
             total = total * 0.75
         elif self.species == "Cantaloupe" and qty >= 5:
             total = total * 0.50
 
-
-
         return total
 
-class WatermelonOrder(object):
+class WatermelonOrder(Melon):
     species = 'Watermelon'
     color = 'green'
     imported = False
     shape = 'natural'
     seasons = ['Fall', 'Summer']
 
-    
+class CantaloupeOrder(Melon):
+    species = 'Cantaloupe'
+    color = 'tan'
+    imported = False
+    shape = 'natural'
+    seasons = ['Spring', 'Summer']
+
+class CasabaOrder(Melon):
+    species = 'Casaba'
+    color = 'green'
+    imported = True
+    shape = 'natural'
+    seasons = ['Spring', 'Winter','Fall', 'Summer']
+
+class SharlynOrder(Melon):
+    species = 'Sharlyn'
+    color = 'tan'
+    imported = True
+    shape = 'natural'
+    seasons = ['Summer']
+
+class SantaClausOrder(Melon):
+    species = 'Santa Claus'
+    color = 'green'
+    imported = True
+    shape = 'natural'
+    seasons = ['Winter', 'Spring']
+
+class ChristmasOrder(Melon):
+    species = 'Christmas'
+    color = 'green'
+    imported = False
+    shape = 'natural'
+    seasons = ['Winter']
+
+class HornedMelonOrder(Melon):
+    species = 'Horned Melon'
+    color = 'yellow'
+    imported = True
+    shape = 'natural'
+    seasons = ['Summer']
+
+class XiguaOrder(Melon):
+    species = 'Xigua'
+    color = 'black'
+    imported = True
+    shape = 'square'
+    seasons = ['Spring', 'Summer']
+
+class OgenOrder(Melon):
+    species = 'Ogen'
+    color = 'tan'
+    imported = False
+    shape = 'natural'
+    seasons = ['Spring', 'Summer']
